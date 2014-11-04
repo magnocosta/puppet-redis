@@ -12,7 +12,7 @@ class redis::install {
      exec { "download-redis":
         command => "/usr/bin/wget http://download.redis.io/redis-stable.tar.gz",
         unless  => "/bin/ls | /bin/grep redis-stable.tar.gz",
-        require => "create-redis-directory"
+        require => File["create-redis-directory"]
      }
 
     # exec { "tar-redis-stable":
